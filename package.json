@@ -10,7 +10,7 @@
     "predocs": "node build/markdown.js",
     "docs": "cross-env NODE_ENV=docs webpack -p",
     "postdocs": "t2k",
-    "pages": "./bin/docs.rb",
+    "pages": "github-cli -p",
     "start": "node build/server.js",
     "test": "jest",
     "release": "release-it"

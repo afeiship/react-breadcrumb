@@ -1,0 +1,17 @@
+$react-breadcrumb-options: () !default;
+
+.react-breadcrumb {
+  $root: &;
+  > .is-item {
+    &:last-child {
+      > .is-separator {
+        display: none;
+      }
+    }
+  }
+
+  .is-separator {
+    margin: 0 5px;
+    color: #ddd;
+  }
+}

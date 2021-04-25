@@ -70,13 +70,8 @@ npm install -S @jswork/react-breadcrumb
       );
     };
 
-    handleClick = (inItem) => {
-      console.log('click item:', inItem);
-    };
-
     render() {
       const { items } = this.state;
-
       return (
         <ReactDemokit
           className="p-3 app-container"

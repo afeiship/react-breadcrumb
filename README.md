@@ -15,8 +15,9 @@ npm install -S @jswork/react-breadcrumb
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| items     | array  | false    | []      | The breadcrumb routes.                |
+| template  | func   | false    | -       | The link component callback.          |
+| separator | union  | false    | '/'     | The breadcrumb separator.             |
 
 
 ## usage
@@ -39,13 +40,53 @@ npm install -S @jswork/react-breadcrumb
   import './assets/style.scss';
 
   class App extends React.Component {
+    state = {
+      items: [
+        { label: '课程', value: '/course', data: {} },
+        { label: 'Gneius', value: '/course/gneius', data: {} },
+        { label: 'Gneius English1', value: null, data: {} }
+      ]
+    };
+
+    templateCustomize = ({ item, plain }, cb) => {
+      const { value, label } = item;
+      const handler = () => {
+        if (!plain) {
+          console.log(item);
+        }
+      };
+
+      const child = plain ? (
+        label
+      ) : (
+        <button className="button" children={label} />
+      );
+
+      return (
+        <span key={value} onClick={handler} className="is-item">
+          {child}
+          {cb()}
+        </span>
+      );
+    };
+
+    handleClick = (inItem) => {
+      console.log('click item:', inItem);
+    };
+
     render() {
+      const { items } = this.state;
+
       return (
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-breadcrumb">
-          <ReactBreadcrumb className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
+          <ReactBreadcrumb items={items} />
+          <ReactBreadcrumb
+            items={items}
+            separator={<strong>|</strong>}
+            template={this.templateCustomize}
+          />
         </ReactDemokit>
       );
     }

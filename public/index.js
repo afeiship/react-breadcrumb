@@ -15,7 +15,12 @@ class App extends React.Component {
 
   templateCustomize = ({ item, plain }, cb) => {
     const { value, label } = item;
-    const handler = this.handleClick.bind(this, item);
+    const handler = () => {
+      if (!plain) {
+        console.log(item);
+      }
+    };
+
     const child = plain ? (
       label
     ) : (
@@ -30,13 +35,8 @@ class App extends React.Component {
     );
   };
 
-  handleClick = (inItem) => {
-    console.log('click item:', inItem);
-  };
-
   render() {
     const { items } = this.state;
-
     return (
       <ReactDemokit
         className="p-3 app-container"
@@ -44,7 +44,7 @@ class App extends React.Component {
         <ReactBreadcrumb items={items} />
         <ReactBreadcrumb
           items={items}
-          separator="|"
+          separator={<strong>|</strong>}
           template={this.templateCustomize}
         />
       </ReactDemokit>

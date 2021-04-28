@@ -45,8 +45,8 @@ export default class ReactBreadcrumb extends Component {
   };
 
   handleTemplate = ({ item, index }) => {
-    const { separator, template } = this.props;
-    const plain = !item.value;
+    const { separator, template, items } = this.props;
+    const plain = index === items.length - 1;
     const cb = () => <span className="is-separator">{separator}</span>;
     return template({ item, plain, index }, cb);
   };

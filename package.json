@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-breadcrumb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Breadcrumb for react.",
   "main": "dist/index.js",
   "scripts": {

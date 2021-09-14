@@ -55,6 +55,7 @@ export default class ReactBreadcrumb extends Component {
     const { className, separator, template, ...props } = this.props;
     return (
       <ReactList
+        nodeName="div"
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
         template={this.handleTemplate}

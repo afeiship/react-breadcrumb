@@ -1,7 +1,7 @@
 {
   "name": "@jswork/react-breadcrumb",
   "homepage": "https://js.work",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Breadcrumb for react.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -76,5 +76,9 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "keywords": [
+    "react",
+    "breadcrumb"
+  ]
 }

@@ -1,6 +1,4 @@
-import noop from '@jswork/noop';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ReactList from '@jswork/react-list';
 
@@ -16,28 +14,28 @@ const DEFAULT_TEMPLATE = ({ item, plain }, cb) => {
   );
 };
 
-export default class ReactBreadcrumb extends Component {
+export type ReactBreadcrumbProps = {
+  /**
+   * The extended className for component.
+   */
+  className?: string;
+  /**
+   * Default value.
+   */
+  items: any[];
+  /**
+   * Template for item.
+   */
+  template: any;
+  /**
+   * Separator for item.
+   */
+  separator: React.ReactNode;
+};
+
+export default class ReactBreadcrumb extends Component<ReactBreadcrumbProps> {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
-  static propTypes = {
-    /**
-     * The extended className for component.
-     */
-    className: PropTypes.string,
-    /**
-     * The breadcrumb routes.
-     */
-    items: PropTypes.array,
-    /**
-     * The link component callback.
-     */
-    template: PropTypes.func,
-    /**
-     * The breadcrumb separator.
-     */
-    separator: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-  };
-
   static defaultProps = {
     items: [],
     separator: '/',
@@ -55,7 +53,7 @@ export default class ReactBreadcrumb extends Component {
     const { className, separator, template, ...props } = this.props;
     return (
       <ReactList
-        nodeName="div"
+        as="div"
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
         template={this.handleTemplate}

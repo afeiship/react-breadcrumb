@@ -11,9 +11,6 @@
 npm install -S @jswork/react-breadcrumb
 ```
 
-## properties
-__GENERATE_DOCS__
-
 ## usage
 1. import css
   ```scss
@@ -30,9 +27,8 @@ __GENERATE_DOCS__
 __GENERATE_DAPP__
   ```
 
-## documentation
+## preview
 - https://afeiship.github.io/react-breadcrumb/
-
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-breadcrumb/blob/master/LICENSE.txt).

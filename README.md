@@ -11,15 +11,6 @@
 npm install -S @jswork/react-breadcrumb
 ```
 
-## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| items     | array  | false    | []      | The breadcrumb routes.                |
-| template  | func   | false    | -       | The link component callback.          |
-| separator | union  | false    | '/'     | The breadcrumb separator.             |
-
-
 ## usage
 1. import css
   ```scss
@@ -33,67 +24,27 @@ npm install -S @jswork/react-breadcrumb
   ```
 2. import js
   ```js
-  import ReactDemokit from '@jswork/react-demokit';
   import React from 'react';
-  import ReactDOM from 'react-dom';
   import ReactBreadcrumb from '@jswork/react-breadcrumb';
-  import './assets/style.scss';
+  import styled from 'styled-components';
 
-  class App extends React.Component {
-    state = {
-      items: [
-        { label: '课程', value: '/course', data: {} },
-        { label: 'Gneius', value: '/course/gneius', data: {} },
-        { label: 'Gneius English1', value: null, data: {} }
-      ]
-    };
+  const Container = styled.div`
+    width: 80%;
+    margin: 30px auto 0;
+  `;
 
-    templateCustomize = ({ item, plain }, cb) => {
-      const { value, label } = item;
-      const handler = () => {
-        if (!plain) {
-          console.log(item);
-        }
-      };
-
-      const child = plain ? (
-        label
-      ) : (
-        <button className="button" children={label} />
-      );
-
-      return (
-        <span key={value} onClick={handler} className="is-item">
-          {child}
-          {cb()}
-        </span>
-      );
-    };
-
-    render() {
-      const { items } = this.state;
-      return (
-        <ReactDemokit
-          className="p-3 app-container"
-          url="https://github.com/afeiship/react-breadcrumb">
-          <ReactBreadcrumb items={items} />
-          <ReactBreadcrumb
-            items={items}
-            separator={<strong>|</strong>}
-            template={this.templateCustomize}
-          />
-        </ReactDemokit>
-      );
-    }
-  }
-
-  ReactDOM.render(<App />, document.getElementById('app'));
+  export default (props: any) => {
+    return (
+      <Container>
+        <ReactBreadcrumb />
+      </Container>
+    );
+  };
 
   ```
 
-## documentation
+## preview
 - https://afeiship.github.io/react-breadcrumb/
-
 
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-breadcrumb/blob/master/LICENSE.txt).

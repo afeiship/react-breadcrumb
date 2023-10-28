@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsup",
     "postbuild": "postsass -s src/style.scss -d dist/style.css",
-    "release": "release-it"
+    "release": "release-it --ci"
   },
   "devDependencies": {
     "@swc/core": "^1.3.93",

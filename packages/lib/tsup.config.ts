@@ -11,9 +11,9 @@ export default defineConfig({
   minify: true,
   sourcemap: true,
   splitting: true,
-  target: 'es5',
+  target: 'es6',
   bundle: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'classnames'],
   outExtension({ format }) {
     return {
       js: `.${format}.js`,

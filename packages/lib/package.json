@@ -1,6 +1,6 @@
 {
   "name": "@jswork/react-breadcrumb",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",

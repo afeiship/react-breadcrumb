@@ -2,6 +2,7 @@ $react-breadcrumb-options: () !default;
 
 .react-breadcrumb {
   $root: &;
+  text-transform: capitalize;
   > .is-item {
     &:last-child {
       > .is-separator {

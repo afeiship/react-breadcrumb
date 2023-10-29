@@ -1,17 +1,12 @@
-import React from 'react';
-import ReactBreadcrumb from '../../src/main';
-import styled from 'styled-components';
+import ReactBreadcrumb from '@jswork/react-breadcrumb';
+import './App.css';
+import '@jswork/react-breadcrumb/dist/style.css';
 
-const Container = styled.div`
-  width: 80%;
-  margin: 30px auto 0;
-`;
-
-export default () => {
+function App() {
   const items = [
     { label: '课程', value: '/course', data: {} },
     { label: 'Gneius', value: '/course/gneius', data: {} },
-    { label: 'Gneius English1', value: null, data: {} }
+    { label: 'Gneius English1', value: null, data: {} },
   ];
 
   const templateCustomize = ({ item, plain }, cb) => {
@@ -33,8 +28,11 @@ export default () => {
   };
 
   return (
-    <Container>
+    <>
+      <h1>@jswork/react-breadcrumb</h1>
       <ReactBreadcrumb items={items} template={templateCustomize} />
-    </Container>
+    </>
   );
-};
+}
+
+export default App;

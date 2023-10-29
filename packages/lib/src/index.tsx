@@ -39,7 +39,7 @@ export default class ReactBreadcrumb extends Component<ReactBreadcrumbProps> {
   static defaultProps = {
     items: [],
     separator: '/',
-    template: DEFAULT_TEMPLATE
+    template: DEFAULT_TEMPLATE,
   };
 
   handleTemplate = ({ item, index }) => {

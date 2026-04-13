@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import ReactList from '@jswork/react-list';
 
 const CLASS_NAME = 'react-breadcrumb';
 const DEFAULT_TEMPLATE = ({ item, plain }, cb) => {
@@ -50,15 +49,14 @@ export default class ReactBreadcrumb extends Component<ReactBreadcrumbProps> {
   };
 
   render() {
-    const { className, separator, template, ...props } = this.props;
+    const { className, separator, template, items, ...props } = this.props;
     return (
-      <ReactList
-        as="div"
+      <div
         data-component={CLASS_NAME}
         className={classNames(CLASS_NAME, className)}
-        template={this.handleTemplate}
-        {...props}
-      />
+        {...props}>
+        {items.map((item, index) => this.handleTemplate({ item, index }))}
+      </div>
     );
   }
 }
